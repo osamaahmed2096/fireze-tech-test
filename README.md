@@ -19,7 +19,7 @@ Here are the required ones:
 
 ```
 PORT=
-API_ENDPOINT=https://v6.exchangerate-api.com/v6/{YOUR_API_KEY_GOES_HERE}/latest
+API_ENDPOINT=https://v6.exchangerate-api.com/v6/{YOUR_API_KEY_GOES_HERE}/pair
 ```
 
 ### Run the project
@@ -29,3 +29,9 @@ Run the following command to run the project:
 ```shell
 npm run dev
 ```
+
+### Available Requests
+
+Get request to `/currency-codes` will provide you with an array of available currencies to work with.
+
+Post request to `/conversion-rate` in which you need to include amount, from (currency code to convert from), to (currency code to convert to) in the body, you will then receive the amount converted.

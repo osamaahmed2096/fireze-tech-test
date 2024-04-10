@@ -5,14 +5,14 @@ const axios = require('axios');
 // The rate is retrieved from the data and then the final value is calculated and returned
 const getConversionRate = async (value, from, to) => {
   const apiData = await axios
-    .get(`${process.env.API_ENDPOINT}/${from}`)
+    .get(`${process.env.API_ENDPOINT}/${from}/${to}`)
     .catch((err) => ({ status: 400, error: err.response.data['error-type']}));
 
   if (apiData.error) {
     return apiData;
   }
   
-  const toRate = apiData['data']['conversion_rates'][to];
+  const toRate = apiData['data']['conversion_rate'];
 
   return (value * toRate).toString();
 }
