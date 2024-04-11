@@ -1,14 +1,21 @@
 const router = require('express').Router();
 const currencyCodes = require('../config/currencies');
-const getConversionRate = require('../services/exchange-rate');
+const getConversionRate = require('../services/exchange-rate').getConversionRate;
+const getSupportedCurrencies = require('../services/exchange-rate').getSupportedCurrencies;
 const errors = require('../config/errors');
 const validationMiddleware = require('../middleware/middleware');
 
 // Endpoint to retrieve a list of valid currency codes
-// Could've used the /codes endpoint but thought to reduce amount of calls
-// to just store it locally
 router.get('/currency-codes', async (_, res) => {
-  res.status(200).json(currencyCodes);
+  const currencies = await getSupportedCurrencies();
+
+  if (currencies.error) {
+    res.status(currencies.status).send(currencies.error);
+
+    return;
+  }
+
+  res.status(200).json(currencies);
 });
 
 // Endpoint which retrieves values from the body, validates those values using Joi schema

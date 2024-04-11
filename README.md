@@ -1,3 +1,7 @@
+## About
+
+This is a BE NodeJS service which allows the user to make requests to the exchangerate-api to get the conversions that they are looking for.
+
 ## Getting Started
 
 ### Prerequisites
