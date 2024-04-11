@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const currencyCodes = require('../config/currencies');
+
 const getConversionRate = require('../services/exchange-rate').getConversionRate;
 const getSupportedCurrencies = require('../services/exchange-rate').getSupportedCurrencies;
 const errors = require('../config/errors');
-const validationMiddleware = require('../middleware/middleware');
+const validationMiddleware = require('../middleware/validateValues');
 
 // Endpoint to retrieve a list of valid currency codes
 router.get('/currency-codes', async (_, res) => {

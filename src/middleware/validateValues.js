@@ -1,7 +1,7 @@
 const schema = require('../schemas');
 
 // Middleware used to check that the values passed to the request body are valid
-const middleware = (req, res, next) => {
+const validateValues = (req, res, next) => {
   const { error } = schema.validate(req.body);
 
   if (!error) {
@@ -15,4 +15,4 @@ const middleware = (req, res, next) => {
   }
 };
 
-module.exports = middleware;
+module.exports = validateValues;

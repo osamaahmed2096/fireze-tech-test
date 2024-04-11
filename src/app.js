@@ -3,12 +3,15 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const routes = require('./api/routes');
+const rateLimitMiddleware = require('./middleware/rateLimit');
 
 const port = process.env.PORT || 4000;
 
 const app = express();
 
 app.use(express.json());
+
+app.use(rateLimitMiddleware);
 
 // Need these cors options to only accept requests from localhost:3000
 // which the FE React app would be running on

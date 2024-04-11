@@ -24,6 +24,7 @@ Here are the required ones:
 ```
 PORT=
 API_ENDPOINT=https://v6.exchangerate-api.com/v6/{YOUR_API_KEY_GOES_HERE}/pair
+MAX_REQUESTS=
 ```
 
 ### Run the project
