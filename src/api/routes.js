@@ -5,6 +5,8 @@ const errors = require('../config/errors');
 const validationMiddleware = require('../middleware/middleware');
 
 // Endpoint to retrieve a list of valid currency codes
+// Could've used the /codes endpoint but thought to reduce amount of calls
+// to just store it locally
 router.get('/currency-codes', async (_, res) => {
   res.status(200).json(currencyCodes);
 });

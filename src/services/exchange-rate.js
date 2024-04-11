@@ -12,7 +12,7 @@ const getConversionRate = async (amount, from, to) => {
     return apiData;
   }
 
-  return apiData['data']['conversion_result'].toString();
+  return apiData['data']['conversion_result'].toFixed(2).toString();
 }
 
 module.exports = getConversionRate;

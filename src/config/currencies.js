@@ -1,6 +1,5 @@
 // List of available currencies that work with the currency API
 module.exports = [
-  "USD",
   "AED",
   "AFN",
   "ALL",
@@ -147,6 +146,7 @@ module.exports = [
   "TZS",
   "UAH",
   "UGX",
+  "USD",
   "UYU",
   "UZS",
   "VES",
